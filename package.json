@@ -1,0 +1,31 @@
+{
+  "name": "api-testcases-generator",
+  "version": "1.0.0",
+  "description": "Generating test cases for API",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [
+    "test",
+    "cases",
+    "API"
+  ],
+  "author": "Kaushik",
+  "license": "MIT",
+  "babel": {
+    "presets": [
+      "@babel/preset-env"
+    ]
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.22.9",
+    "jest": "^29.6.2",
+    "supertest": "^6.3.3"
+  },
+  "dependencies": {
+    "@types/jest": "^29.5.3",
+    "dotenv": "^16.3.1"
+  }
+}
