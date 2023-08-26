@@ -17,7 +17,7 @@ A utility package to generate JSON combinations which can use used further write
 Contributions are welcome! If you have suggetions or improvements, feel free to submit a pull request.
 
 ## Example
--  Consider a API with a below request body
+-  Consider an API with a below request body
   ```
 {
         "name": "username",
