@@ -6,9 +6,9 @@ export function getCases(config) {
 }
 
 function generatePositiveTestCases(inputSpec) {
-
   const testCases = [];
 
+  // Generate test case with all mandatory parameters
   const allMandatoryTestCase = {};
   inputSpec.parameters.forEach(param => {
     if (param.mandatory) {
@@ -17,14 +17,24 @@ function generatePositiveTestCases(inputSpec) {
   });
   testCases.push(allMandatoryTestCase);
 
-  for (const element of inputSpec.parameters) {
-    const param = element;
+  // Generate additional test cases with combinations of non-mandatory parameters
+  for (let i = 0; i < inputSpec.parameters.length; i++) {
+    const param = inputSpec.parameters[i];
     if (!param.mandatory) {
       const testCase = { ...allMandatoryTestCase };
       testCase[param.name] = generateValidValueForType(param.type);
       testCases.push(testCase);
     }
   }
+
+  // Generate a test case with all non-mandatory parameters
+  const allNonMandatoryTestCase = { ...allMandatoryTestCase };
+  inputSpec.parameters.forEach(param => {
+    if (!param.mandatory) {
+      allNonMandatoryTestCase[param.name] = generateValidValueForType(param.type);
+    }
+  });
+  testCases.push(allNonMandatoryTestCase);
 
   return testCases;
 }
